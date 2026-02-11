@@ -1,4 +1,9 @@
 import streamlit as st
+import sys
+import os
+
+# Menambahkan direktori root ke sys.path agar folder modules terbaca
+sys.path.append(os.path.dirname(os.path.abspath(__file__)))
 # Import UI dari module yang sudah kita rapikan
 from modules.inspection import mechanical
 
