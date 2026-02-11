@@ -1,7 +1,9 @@
 import streamlit as st
 import pandas as pd
-# Import Modul Buatan Kita
-from modules.analyzers import * from modules.decision_engine import generate_full_diagnosis
+
+# Gunakan absolute import dari root
+from modules.analyzers import VibrationAnalyzer, BearingAnalyzer, StructuralAnalyzer, ThermalAnalyzer, HydraulicAnalyzer, SpectrumAnalyzer
+from modules.decision_engine import generate_full_diagnosis
 
 def render_mechanical_page():
     st.header("🔍 Integrated Diagnostic Dashboard")
