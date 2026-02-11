@@ -1,6 +1,21 @@
 import streamlit as st
-# Import UI dari module yang sudah kita rapikan
-from modules.inspection import mechanical
+import sys
+import os
+
+# --- FIX UNTUK MODULE NOT FOUND ---
+# Mengambil path absolut dari file main.py
+root_path = os.path.dirname(os.path.abspath(__file__))
+# Masukkan ke dalam daftar pencarian Python
+if root_path not in sys.path:
+    sys.path.insert(0, root_path)
+
+# Sekarang panggil modul dengan aman
+try:
+    from modules.inspection import mechanical
+except Exception as e:
+    st.error(f"Gagal memuat modul. Detail Error: {e}")
+    st.info(f"Root Path: {root_path}")
+    st.info(f"Isi Folder Root: {os.listdir(root_path)}")
 
 # --- 1. KONFIGURASI HALAMAN (WAJIB PALING ATAS) ---
 st.set_page_config(
